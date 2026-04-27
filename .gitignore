@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Electron build output
+dist/
+build/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Local config (puede contener rutas específicas del usuario)
+config.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Kiro temp files
+.kiro/cache/

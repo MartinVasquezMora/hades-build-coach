@@ -1,0 +1,124 @@
+{
+  "recuerdos": [
+    {
+      "id": "rayo_zeus",
+      "nombre": "Rayo de Zeus",
+      "dios_vinculado": "zeus",
+      "icono": "⚡",
+      "efecto": "El próximo don será de Zeus. Sus bendiciones otorgan +20% de daño atronador.",
+      "categoria": "dios"
+    },
+    {
+      "id": "concha_poseidon",
+      "nombre": "Concha Marina Ondulante",
+      "dios_vinculado": "poseidon",
+      "icono": "🌊",
+      "efecto": "El próximo don será de Poseidón. Sus bendiciones hacen que los enemigos repelidos exploten al impactar.",
+      "categoria": "dios"
+    },
+    {
+      "id": "buho_atenea",
+      "nombre": "Colgante de Búho",
+      "dios_vinculado": "atenea",
+      "icono": "🦉",
+      "efecto": "El próximo don será de Atenea. Sus bendiciones otorgan +1s de duración al deflectar.",
+      "categoria": "dios"
+    },
+    {
+      "id": "rosa_afrodita",
+      "nombre": "Rosa Eterna",
+      "dios_vinculado": "afrodita",
+      "icono": "🌹",
+      "efecto": "El próximo don será de Afrodita. Sus bendiciones aplican debilidad potenciada (-30% daño enemigo).",
+      "categoria": "dios"
+    },
+    {
+      "id": "punta_flecha",
+      "nombre": "Punta de Flecha Adamantina",
+      "dios_vinculado": "artemisa",
+      "icono": "🏹",
+      "efecto": "El próximo don será de Artemisa. Sus bendiciones tienen +15% probabilidad de golpe crítico.",
+      "categoria": "dios"
+    },
+    {
+      "id": "sangre_ares",
+      "nombre": "Frasco de Sangre Maldita",
+      "dios_vinculado": "ares",
+      "icono": "🩸",
+      "efecto": "El próximo don será de Ares. Sus bendiciones aplican sangrado acelerado.",
+      "categoria": "dios"
+    },
+    {
+      "id": "copa_dionisio",
+      "nombre": "Copa Ambrosial",
+      "dios_vinculado": "dionisio",
+      "icono": "🍷",
+      "efecto": "El próximo don será de Dionisio. Sus bendiciones intoxican más rápido y duran más.",
+      "categoria": "dios"
+    },
+    {
+      "id": "copo_demeter",
+      "nombre": "Copo de Nieve Eterno",
+      "dios_vinculado": "demeter",
+      "icono": "❄️",
+      "efecto": "El próximo don será de Deméter. Sus bendiciones congelan instantáneamente enemigos por debajo del 20% de vida.",
+      "categoria": "dios"
+    },
+    {
+      "id": "diente_skelly",
+      "nombre": "Diente de Skelly",
+      "dios_vinculado": null,
+      "icono": "🦴",
+      "efecto": "Resucitas con 50-100 de vida al morir (1 vez por run). Defensivo para jefes difíciles.",
+      "categoria": "defensivo"
+    },
+    {
+      "id": "monedero_caronte",
+      "nombre": "Monedero de Caronte",
+      "dios_vinculado": null,
+      "icono": "💰",
+      "efecto": "Garantiza 100+ Obolos al entrar a una tienda. Útil para comprar mejoras antes de jefes.",
+      "categoria": "utilitario"
+    },
+    {
+      "id": "bellota_perenne",
+      "nombre": "Bellota Perenne",
+      "dios_vinculado": null,
+      "icono": "🌰",
+      "efecto": "Ganas +25 de vida máxima. Al final del bioma, curas 50 de vida. Defensivo para supervivencia.",
+      "categoria": "defensivo"
+    },
+    {
+      "id": "punta_lanza",
+      "nombre": "Punta de Lanza Rota",
+      "dios_vinculado": null,
+      "icono": "🔱",
+      "efecto": "Tu próximo ataque después de hacer dash hace +150% de daño. Ofensivo para bursteo.",
+      "categoria": "ofensivo"
+    },
+    {
+      "id": "velo_nix",
+      "nombre": "Velo de Nix",
+      "dios_vinculado": null,
+      "icono": "🌑",
+      "efecto": "Tartaro: Las bendiciones ofrecidas tienen +1 nivel de rareza (mayor probabilidad de Épicas/Legendarias).",
+      "categoria": "progresion"
+    },
+    {
+      "id": "pita_tánatos",
+      "nombre": "Pita de Tánatos",
+      "dios_vinculado": null,
+      "icono": "⚰️",
+      "efecto": "+25% probabilidad de encontrar Puertas del Caos con trofeos de caos valiosos.",
+      "categoria": "farmeo"
+    },
+    {
+      "id": "pomo_dédalo",
+      "nombre": "Pomo de Dédalo",
+      "dios_vinculado": null,
+      "icono": "🔨",
+      "efecto": "Garantiza que el próximo encuentro con Sísifo contenga una mejora de Dédalo.",
+      "categoria": "progresion"
+    }
+  ]
+}

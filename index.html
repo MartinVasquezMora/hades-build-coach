@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hades Build Lab - Coach de Builds</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Title Bar para Electron (draggable) -->
+    <div id="title-bar">
+        <div id="title-text">Hades Coach</div>
+        <div id="vision-status-badge" class="vision-offline">
+            <span class="status-icon">🔴</span>
+            <span class="status-text">Sin Visión</span>
+        </div>
+        <div id="title-controls">
+            <button id="test-ia-btn" title="Simular detección de Artemisa">🧪 Test IA</button>
+            <button id="close-btn">✕</button>
+        </div>
+    </div>
+    
+    <!-- Toast de notificación para detecciones -->
+    <div id="vision-toast" class="toast-hidden">
+        <div class="toast-icon">⚡</div>
+        <div class="toast-content">
+            <div class="toast-title">Zeus detectado</div>
+            <div class="toast-subtitle">Auto-seleccionando build</div>
+            <div class="toast-progress">
+                <div class="toast-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== OVERLAY COMPACTO (F1) ==================== -->
+    <div id="compact-overlay" class="hidden">
+        <div class="compact-header">
+            <span id="compact-biome">🔥 Tártaro</span>
+            <button class="compact-close-btn" onclick="toggleModoCompacto()" title="Salir modo compacto (F1)">⊞</button>
+        </div>
+        <div class="compact-body">
+            <div class="compact-row">
+                <span class="compact-label">Recuerdo</span>
+                <span id="compact-keepsake" class="compact-value">—</span>
+            </div>
+            <div class="compact-row">
+                <span class="compact-label">Objetivo</span>
+                <span id="compact-next-goal" class="compact-value">Selecciona un aspecto</span>
+            </div>
+            <div class="compact-row">
+                <span class="compact-label">Dúo</span>
+                <span id="compact-duo" class="compact-value">—</span>
+            </div>
+        </div>
+        <div class="compact-progress" id="compact-progress">Bendiciones: 0/0</div>
+        <div class="compact-biome-nav">
+            <button class="biome-btn active" data-bioma="tartarus" title="Tártaro">🔥</button>
+            <button class="biome-btn" data-bioma="asphodel" title="Asfódelos">🌾</button>
+            <button class="biome-btn" data-bioma="elysium" title="Elíseo">⚔️</button>
+            <button class="biome-btn" data-bioma="styx" title="Estigia">❄️</button>
+        </div>
+        <div class="compact-biome-switch">
+            <button class="compact-biome-btn active" data-bioma="tartarus" title="Tártaro">🔥 T</button>
+            <button class="compact-biome-btn" data-bioma="asphodel" title="Asfódelos">🌾 A</button>
+            <button class="compact-biome-btn" data-bioma="elysium" title="Elíseo">⚔️ E</button>
+            <button class="compact-biome-btn" data-bioma="styx" title="Estigia">❄️ S</button>
+        </div>
+        <div class="compact-hotkeys">F1 Normal · F3 Victoria · F4 Derrota</div>
+    </div>
+        <h1>HADES BUILD LAB</h1>
+        <p class="subtitle">Coach y Laboratorio de Builds</p>
+    </header>
+
+    <!-- ==================== TABS DE NAVEGACIÓN ==================== -->
+    <nav class="app-tabs" id="app-tabs">
+        <button class="tab-btn active" data-tab="lab">⚗️ Laboratorio</button>
+        <button class="tab-btn" data-tab="tracker">🏃 Run Activa</button>
+        <button class="tab-btn" data-tab="historial">📊 Historial</button>
+        <button class="tab-btn" data-tab="ayuda">📖 Cómo usar</button>
+    </nav>
+
+    <div class="app-container" id="tab-lab">
+        <!-- Panel Lateral Izquierdo: Selector de Equipo + Modo Coach -->
+        <aside class="sidebar-left">
+            <!-- Selector de Equipo -->
+            <section class="equipment-panel">
+                <h2>Selector de Equipo</h2>
+                
+                <div class="selector-section">
+                    <label for="weapon-select">Arma</label>
+                    <select id="weapon-select">
+                        <option value="">Selecciona un arma...</option>
+                    </select>
+                </div>
+
+                <div class="selector-section">
+                    <label for="aspect-select">Aspecto</label>
+                    <select id="aspect-select" disabled>
+                        <option value="">Primero selecciona un arma...</option>
+                    </select>
+                </div>
+
+                <div class="selected-info" id="selected-info">
+                    <p class="placeholder-text">Selecciona un arma y aspecto para ver detalles</p>
+                </div>
+            </section>
+
+            <!-- Panel de Modo Coach -->
+            <section class="coach-panel">
+                <div class="coach-header">
+                    <h2>Modo Coach</h2>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="coach-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="coach-content" id="coach-content">
+                    <div class="coach-mode-indicator">
+                        <span class="mode-label mode-farm active">Farmeo</span>
+                        <span class="mode-label mode-heat">High Heat</span>
+                    </div>
+                    
+                    <!-- Modo Farmeo -->
+                    <div class="coach-section" id="farm-mode">
+                        <h3>Configuración Espejo</h3>
+                        <div class="mirror-talents">
+                            <div class="talent-item">
+                                <span class="talent-name">Presencia Oscura</span>
+                                <span class="talent-desc">+20% daño a enemigos no enfocados</span>
+                            </div>
+                            <div class="talent-item">
+                                <span class="talent-name">Toque de Midas</span>
+                                <span class="talent-desc">+15% Obolos de enemigos no enfocados</span>
+                            </div>
+                            <div class="talent-item">
+                                <span class="talent-name">Reliquia de Profecía</span>
+                                <span class="talent-desc">Recuerdos comunes y poco comunes mejorados</span>
+                            </div>
+                        </div>
+                        
+                        <h3>Recuerdos Recomendados</h3>
+                        <div class="keepsakes-farm">
+                            <div class="keepsake-card">
+                                <span class="keepsake-name">Velo de Nix</span>
+                                <span class="keepsake-desc">Tartaro: +1 elección de bendición</span>
+                            </div>
+                            <div class="keepsake-card">
+                                <span class="keepsake-name">Pita de Tánatos</span>
+                                <span class="keepsake-desc">+25% probabilidad de trofeos de caos</span>
+                            </div>
+                            <div class="keepsake-card">
+                                <span class="keepsake-name">Pomo de Dédalo</span>
+                                <span class="keepsake-desc">Garantiza un mejora de arna</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modo High Heat (oculto por defecto) -->
+                    <div class="coach-section hidden" id="heat-mode">
+                        <h3>Recordatorios Defensivos</h3>
+                        <div class="heat-tips">
+                            <div class="heat-card boss-eliseo">
+                                <h4>Elíseo - Teseo & Minotauro</h4>
+                                <p class="heat-warning">Equipa <strong>Recuerdo de Atenea</strong> antes de entrar</p>
+                                <ul>
+                                    <li>Prioridad: Dash Deflector</li>
+                                    <li>Esquiva el ataque de carga del Minotauro</li>
+                                    <li>Usa columnas como cobertura contra Teseo</li>
+                                </ul>
+                            </div>
+                            <div class="heat-card boss-hades">
+                                <h4>Templo de Estigia - Hades</h4>
+                                <p class="heat-warning">Mínimo: 2 cargas de Deflect/Invulnerabilidad</p>
+                                <ul>
+                                    <li>Dash Deflector para lasers</li>
+                                    <li>Llamada de Atenea o Dione</li>
+                                    <li>Conserva sangre para fase de orbes</li>
+                                </ul>
+                            </div>
+                            <div class="heat-card pact-tips">
+                                <h4>Pacto de Castigo Activo</h4>
+                                <ul>
+                                    <li>Calisthenics Program: Más enemigos = más cuidado con grupos</li>
+                                    <li>Benefits Package: Prioriza matar élitos primero</li>
+                                    <li>Underworld Customs: Planifica rutas de venta</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Panel Principal: Laboratorio de Builds -->
+        <main class="main-panel">
+            <h2>Laboratorio de Sinergias</h2>
+            
+            <!-- Estado del Build -->
+            <div class="build-status" id="build-status">
+                <div class="status-item">
+                    <span class="status-label">Aspecto Seleccionado:</span>
+                    <span class="status-value" id="status-aspect">Ninguno</span>
+                </div>
+            </div>
+            
+            <!-- Sinergia Clave (Dúo) -->
+            <section class="synergy-section" id="synergy-section">
+                <h3 class="section-title">Sinergia Clave</h3>
+                <div class="synergy-placeholder" id="synergy-placeholder">
+                    <p>Selecciona un arma y aspecto para descubrir sinergias entre dioses</p>
+                </div>
+                <div class="synergy-card hidden" id="synergy-card">
+                    <div class="synergy-gods">
+                        <span class="god-badge" id="duo-god-1"></span>
+                        <span class="synergy-connector">+</span>
+                        <span class="god-badge" id="duo-god-2"></span>
+                    </div>
+                    <h4 class="duo-name" id="duo-name"></h4>
+                    <p class="duo-effect" id="duo-effect"></p>
+                </div>
+            </section>
+            
+            <!-- Build Óptima -->
+            <section class="optimal-build-section" id="optimal-build-section">
+                <h3 class="section-title">Build Óptima</h3>
+                <div class="optimal-placeholder" id="optimal-placeholder">
+                    <p>Las recomendaciones aparecerán aquí al seleccionar un aspecto</p>
+                </div>
+                <div class="optimal-content hidden" id="optimal-content">
+                    <div class="recommended-gods" id="recommended-gods">
+                        <!-- Se llena dinámicamente -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Martillos de Dédalo -->
+            <section class="martillos-section hidden" id="martillos-section">
+                <h3 class="section-title">🔨 Martillos de Dédalo</h3>
+                <div id="martillos-list">
+                    <!-- Se llena dinámicamente -->
+                </div>
+            </section>
+            
+            <!-- Ruta de la Huida (Run Planner) -->
+            <section class="run-planner-section" id="run-planner-section">
+                <h3 class="section-title">Ruta de la Huida (Run Planner)</h3>                <div class="run-planner-placeholder" id="run-planner-placeholder">
+                    <p>Selecciona un aspecto para generar tu ruta óptima de recuerdos</p>
+                </div>
+                <div class="run-planner-content hidden" id="run-planner-content">
+                    <!-- Loading Spinner -->
+                    <div class="loading-spinner hidden" id="loading-spinner">
+                        <div class="spinner"></div>
+                        <span class="loading-text">Calculando ruta óptima...</span>
+                    </div>
+                    
+                    <!-- Timeline de Biomas -->
+                    <div class="biome-timeline" id="biome-timeline">
+                        <!-- Tártaro -->
+                        <div class="biome-box" id="biome-tartarus" data-biome="tartarus">
+                            <div class="biome-header">
+                                <span class="biome-number">01</span>
+                                <h4 class="biome-name">Tártaro</h4>
+                                <span class="biome-icon">🔥</span>
+                            </div>
+                            <div class="biome-content">
+                                <div class="recommendation-type">Recuerdo Inicial</div>
+                                <div class="keepsake-display" id="keepsake-tartarus">
+                                    <!-- Se llena dinámicamente -->
+                                </div>
+                                <div class="biome-strategy">
+                                    <strong>Objetivo:</strong> Obtener bendición del Dios Principal #1
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Línea conectora -->
+                        <div class="timeline-connector">
+                            <div class="connector-line"></div>
+                            <div class="connector-arrow">→</div>
+                        </div>
+                        
+                        <!-- Asfódelos -->
+                        <div class="biome-box" id="biome-asphodel" data-biome="asphodel">
+                            <div class="biome-header">
+                                <span class="biome-number">02</span>
+                                <h4 class="biome-name">Prados Asfódelos</h4>
+                                <span class="biome-icon">🌾</span>
+                            </div>
+                            <div class="biome-content">
+                                <div class="recommendation-type">Cambio de Recuerdo</div>
+                                <div class="keepsake-display" id="keepsake-asphodel">
+                                    <!-- Se llena dinámicamente -->
+                                </div>
+                                <div class="biome-strategy">
+                                    <strong>Objetivo:</strong> Buscar bendición Dúo con Dios #2
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Línea conectora -->
+                        <div class="timeline-connector">
+                            <div class="connector-line"></div>
+                            <div class="connector-arrow">→</div>
+                        </div>
+                        
+                        <!-- Elíseo -->
+                        <div class="biome-box" id="biome-elysium" data-biome="elysium">
+                            <div class="biome-header">
+                                <span class="biome-number">03</span>
+                                <h4 class="biome-name">Elíseo</h4>
+                                <span class="biome-icon">⚔️</span>
+                            </div>
+                            <div class="biome-content">
+                                <div class="recommendation-type">Recuerdo Defensivo</div>
+                                <div class="keepsake-display" id="keepsake-elysium">
+                                    <!-- Se llena dinámicamente -->
+                                </div>
+                                <div class="biome-strategy">
+                                    <strong>Objetivo:</strong> Prepararse para Teseo y Minotauro
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Línea conectora -->
+                        <div class="timeline-connector">
+                            <div class="connector-line"></div>
+                            <div class="connector-arrow">→</div>
+                        </div>
+                        
+                        <!-- Templo del Estigia -->
+                        <div class="biome-box" id="biome-styx" data-biome="styx">
+                            <div class="biome-header">
+                                <span class="biome-number">04</span>
+                                <h4 class="biome-name">Templo del Estigia</h4>
+                                <span class="biome-icon">❄️</span>
+                            </div>
+                            <div class="biome-content">
+                                <div class="recommendation-type">Recuerdo Final</div>
+                                <div class="keepsake-display" id="keepsake-styx">
+                                    <!-- Se llena dinámicamente -->
+                                </div>
+                                <div class="biome-strategy">
+                                    <strong>Objetivo:</strong> Sobrevivir el combate con Hades
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resumen de Estrategia -->
+                    <div class="strategy-summary" id="strategy-summary">
+                        <h4>Resumen de Estrategia</h4>
+                        <p id="strategy-text">Selecciona un aspecto para ver la estrategia recomendada</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Resize handle para redimensionar ventana -->
+    <div id="resize-handle" title="Arrastra para redimensionar"></div>
+
+    <!-- ==================== TRACKER DE RUN ACTIVA ==================== -->
+    <div id="tab-tracker" class="tab-panel hidden">
+    <div id="run-tracker-panel" class="run-tracker-panel">
+        <div class="tracker-header">
+            <h3>🏃 Run Activa</h3>
+            <span class="hotkey-hint">F2 Nueva · F3 Victoria · F4 Derrota</span>
+        </div>
+        <div class="tracker-status">
+            <span id="run-status-text" class="run-status-text">Sin run activa</span>
+        </div>
+        <div class="tracker-biomes">
+            <button class="biome-btn" data-bioma="tartarus" title="Tártaro">🔥 Tártaro</button>
+            <button class="biome-btn" data-bioma="asphodel" title="Asfódelos">🌾 Asfódelos</button>
+            <button class="biome-btn" data-bioma="elysium" title="Elíseo">⚔️ Elíseo</button>
+            <button class="biome-btn" data-bioma="styx" title="Estigia">❄️ Estigia</button>
+        </div>
+        <div class="tracker-actions">
+            <button id="btn-nueva-run" class="btn-run btn-nueva">▶ Nueva Run (F2)</button>
+            <button id="btn-victoria" class="btn-run btn-victoria" disabled>🏆 Victoria (F3)</button>
+            <button id="btn-derrota" class="btn-run btn-derrota" disabled>💀 Derrota (F4)</button>
+        </div>
+        
+        <!-- TAREA-1: Checklist de bendiciones -->
+        <div class="checklist-panel" id="checklist-panel">
+            <h4 class="checklist-title">Bendiciones Obtenidas</h4>
+            <div id="checklist-container">
+                <p class="placeholder-text">Inicia una run para activar el checklist</p>
+            </div>
+        </div>
+    </div>
+
+    </div><!-- /run-tracker-panel -->
+    </div><!-- /tab-tracker -->
+
+    <!-- ==================== HISTORIAL DE RUNS ==================== -->
+    <div id="tab-historial" class="tab-panel hidden">
+    <div id="historial-panel" class="historial-panel">
+        <h3>📊 Historial de Runs</h3>
+        <div id="historial-stats" class="historial-stats"></div>
+        <div id="historial-list" class="historial-list">
+            <p class="placeholder-text">Aún no hay runs registradas. Usa F2 para iniciar.</p>
+        </div>
+    </div>
+    </div><!-- /tab-historial -->
+
+    <!-- ==================== PESTAÑA CÓMO USAR ==================== -->
+    <div id="tab-ayuda" class="tab-panel hidden">
+        <div class="ayuda-panel" id="ayuda-panel">
+            <!-- Generado dinámicamente por renderAyuda() en app.js -->
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

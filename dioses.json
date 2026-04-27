@@ -1,0 +1,256 @@
+{
+  "dioses": [
+    {
+      "id": "zeus",
+      "nombre": "Zeus",
+      "color_tema": "#E6FF8D",
+      "bendiciones": {
+        "ataque": "Ataque Fulgurante",
+        "especial": "Florecer Atronador",
+        "lanzamiento": "Tiro Atronador",
+        "llamada": "Ayuda de Zeus"
+      },
+      "efectos": {
+        "ataque": "Tus ataques emiten un relámpago que rebota entre enemigos.",
+        "especial": "Tu especial emite un relámpago que rebota entre enemigos.",
+        "lanzamiento": "Tu lanzamiento provoca la caída de rayos en el área de impacto.",
+        "llamada": "Un rayo golpea a los enemigos cercanos repetidamente."
+      },
+      "duos": [
+        { "con_dios": "poseidon", "nombre_duo": "Fulgor Resbalón", "efecto": "Los rayos de Zeus también empujan a los enemigos." },
+        { "con_dios": "atenea", "nombre_duo": "Fulgor Deflector", "efecto": "Los rayos que rebotan también deflectan proyectiles." },
+        { "con_dios": "afrodita", "nombre_duo": "Fulgor Fascinante", "efecto": "Los rayos aplican debilidad a los enemigos golpeados." },
+        { "con_dios": "artemisa", "nombre_duo": "Tormenta Mortal", "efecto": "Los rayos pueden ser golpes críticos." },
+        { "con_dios": "ares", "nombre_duo": "Ira Vengativa", "efecto": "Los rayos aplican maldición de sangrado." },
+        { "con_dios": "dionisio", "nombre_duo": "Fulgor Festivo", "efecto": "Los rayos aplican intoxicación." },
+        { "con_dios": "demeter", "nombre_duo": "Invierno Tormentoso", "efecto": "Los rayos también aplican congelamiento." }
+      ]
+    },
+    {
+      "id": "poseidon",
+      "nombre": "Poseidón",
+      "color_tema": "#4A90E2",
+      "bendiciones": {
+        "ataque": "Ataque Resbalón",
+        "especial": "Florecer Resbalón",
+        "lanzamiento": "Estallido Resbalón",
+        "llamada": "Ayuda de Poseidón"
+      },
+      "efectos": {
+        "ataque": "Tus ataques repelen a los enemigos y aumentan el daño que reciben al chocar.",
+        "especial": "Tu especial repela a los enemigos y aumenta el daño que reciben al chocar.",
+        "lanzamiento": "Tu lanzamiento estalla en una gran área y repela a los enemigos.",
+        "llamada": "Invoca un tsunami que repela a todos los enemigos de la habitación."
+      },
+      "duos": [
+        { "con_dios": "zeus", "nombre_duo": "Fulgor Resbalón", "efecto": "Los rayos de Zeus también empujan a los enemigos." },
+        { "con_dios": "atenea", "nombre_duo": "Tsunami Deflector", "efecto": "Los enemigos repelidos deflectan proyectiles al chocar." },
+        { "con_dios": "afrodita", "nombre_duo": "Ola Fascinante", "efecto": "Los enemigos repelidos aplican debilidad a otros al chocar." },
+        { "con_dios": "artemisa", "nombre_duo": "Caza Resbalona", "efecto": "Los enemigos repelidos tienen probabilidad de recibir daño crítico." },
+        { "con_dios": "ares", "nombre_duo": "Sangre en el Agua", "efecto": "Los enemigos repelidos acumulan maldición de sangrado." },
+        { "con_dios": "dionisio", "nombre_duo": "Resaca Nauseabunda", "efecto": "Los enemigos repelidos aplican intoxicación al chocar." },
+        { "con_dios": "demeter", "nombre_duo": "Invierno Resbalón", "efecto": "Los enemigos repelidos también se congelan brevemente." }
+      ]
+    },
+    {
+      "id": "atenea",
+      "nombre": "Atenea",
+      "color_tema": "#C0C0C0",
+      "bendiciones": {
+        "ataque": "Ataque Deflector",
+        "especial": "Florecer Deflector",
+        "lanzamiento": "Disparo Deflector",
+        "llamada": "Ayuda de Atenea"
+      },
+      "efectos": {
+        "ataque": "Tus ataques deflectan proyectiles enemigos y protegen contra daño frontal.",
+        "especial": "Tu especial deflecta proyectiles enemigos y protege contra daño frontal.",
+        "lanzamiento": "Tu lanzamiento deflecta proyectiles y protege contra daño frontal.",
+        "llamada": "Ganas una invulnerabilidad temporal y deflectas todos los proyectiles."
+      },
+      "duos": [
+        { "con_dios": "zeus", "nombre_duo": "Fulgor Deflector", "efecto": "Los rayos que rebotan también deflectan proyectiles." },
+        { "con_dios": "poseidon", "nombre_duo": "Tsunami Deflector", "efecto": "Los enemigos repelidos deflectan proyectiles al chocar." },
+        { "con_dios": "afrodita", "nombre_duo": "Fascinación Deflectora", "efecto": "Deflectar proyectiles aplica debilidad a enemigos cercanos." },
+        { "con_dios": "artemisa", "nombre_duo": "Caza Deflectora", "efecto": "Deflectar proyectiles tiene probabilidad de ser crítico." },
+        { "con_dios": "ares", "nombre_duo": "Cuchilla Mortal", "efecto": "Deflectar proyectiles aplica maldición de sangrado." },
+        { "con_dios": "dionisio", "nombre_duo": "Resaca Deflectora", "efecto": "Deflectar proyectiles aplica intoxicación." },
+        { "con_dios": "demeter", "nombre_duo": "Invierno Deflector", "efecto": "Deflectar proyectiles congela a los enemigos cercanos." }
+      ]
+    },
+    {
+      "id": "afrodita",
+      "nombre": "Afrodita",
+      "color_tema": "#FF69B4",
+      "bendiciones": {
+        "ataque": "Ataque Fascinante",
+        "especial": "Florecer Fascinante",
+        "lanzamiento": "Disparo Fascinante",
+        "llamada": "Ayuda de Afrodita"
+      },
+      "efectos": {
+        "ataque": "Tus ataques aplican Debilidad (enemigos infligen menos daño).",
+        "especial": "Tu especial aplica Debilidad (enemigos infligen menos daño).",
+        "lanzamiento": "Tu lanzamiento aplica Debilidad en área.",
+        "llamada": "Una ola de corazones aplica Debilidad masiva y encanta enemigos."
+      },
+      "duos": [
+        { "con_dios": "zeus", "nombre_duo": "Fulgor Fascinante", "efecto": "Los rayos aplican debilidad a los enemigos golpeados." },
+        { "con_dios": "poseidon", "nombre_duo": "Ola Fascinante", "efecto": "Los enemigos repelidos aplican debilidad a otros al chocar." },
+        { "con_dios": "atenea", "nombre_duo": "Fascinación Deflectora", "efecto": "Deflectar proyectiles aplica debilidad a enemigos cercanos." },
+        { "con_dios": "artemisa", "nombre_duo": "Caza Fascinante", "efecto": "Los golpes críticos aplican debilidad aumentada." },
+        { "con_dios": "ares", "nombre_duo": "Fascinación Sangrienta", "efecto": "La debilidad también aplica sangrado gradual." },
+        { "con_dios": "dionisio", "nombre_duo": "Resaca Fascinante", "efecto": "La intoxicación también aplica debilidad." },
+        { "con_dios": "demeter", "nombre_duo": "Invierno Fascinante", "efecto": "Los enemigos congelados están debilitados permanentemente." }
+      ]
+    },
+    {
+      "id": "artemisa",
+      "nombre": "Artemisa",
+      "color_tema": "#88E83D",
+      "bendiciones": {
+        "ataque": "Impacto Mortal",
+        "especial": "Florecer Mortal",
+        "lanzamiento": "Disparo Auténtico",
+        "llamada": "Ayuda de Artemisa"
+      },
+      "efectos": {
+        "ataque": "Tus ataques tienen probabilidad de ser críticos (+300% de daño).",
+        "especial": "Tu especial tiene probabilidad de ser crítico (+300% de daño).",
+        "lanzamiento": "Tu lanzamiento tiene probabilidad de ser crítico (+300% de daño).",
+        "llamada": "Llueve una lluvia de flechas críticas sobre tu enemigo."
+      },
+      "duos": [
+        { "con_dios": "zeus", "nombre_duo": "Tormenta Mortal", "efecto": "Los rayos pueden ser golpes críticos." },
+        { "con_dios": "poseidon", "nombre_duo": "Caza Resbalona", "efecto": "Los enemigos repelidos tienen probabilidad de recibir daño crítico." },
+        { "con_dios": "atenea", "nombre_duo": "Caza Deflectora", "efecto": "Deflectar proyectiles tiene probabilidad de ser crítico." },
+        { "con_dios": "afrodita", "nombre_duo": "Caza Fascinante", "efecto": "Los golpes críticos aplican debilidad aumentada." },
+        { "con_dios": "ares", "nombre_duo": "Caza Sangrienta", "efecto": "Los golpes críticos aplican sangrado masivo." },
+        { "con_dios": "dionisio", "nombre_duo": "Caza Nauseabunda", "efecto": "Los golpes críticos aplican intoxicación potenciada." },
+        { "con_dios": "demeter", "nombre_duo": "Invierno Mortal", "efecto": "Los golpes críticos congelan instantáneamente." }
+      ]
+    },
+    {
+      "id": "ares",
+      "nombre": "Ares",
+      "color_tema": "#DC143C",
+      "bendiciones": {
+        "ataque": "Ataque Maldito",
+        "especial": "Florecer Maldito",
+        "lanzamiento": "Disparo Maldito",
+        "llamada": "Ayuda de Ares"
+      },
+      "efectos": {
+        "ataque": "Tus ataques aplican Maldición (daño de sangrado tras 1 segundo).",
+        "especial": "Tu especial aplica Maldición (daño de sangrado tras 1 segundo).",
+        "lanzamiento": "Tu lanzamiento aplica Maldición en área.",
+        "llamada": "Invoca espadas circulares que aplican Maldición masiva."
+      },
+      "duos": [
+        { "con_dios": "zeus", "nombre_duo": "Ira Vengativa", "efecto": "Los rayos aplican maldición de sangrado." },
+        { "con_dios": "poseidon", "nombre_duo": "Sangre en el Agua", "efecto": "Los enemigos repelidos acumulan maldición de sangrado." },
+        { "con_dios": "atenea", "nombre_duo": "Cuchilla Mortal", "efecto": "Deflectar proyectiles aplica maldición de sangrado." },
+        { "con_dios": "afrodita", "nombre_duo": "Fascinación Sangrienta", "efecto": "La debilidad también aplica sangrado gradual." },
+        { "con_dios": "artemisa", "nombre_duo": "Caza Sangrienta", "efecto": "Los golpes críticos aplican sangrado masivo." },
+        { "con_dios": "dionisio", "nombre_duo": "Resaca Sangrienta", "efecto": "La maldición también intoxica al explotar." },
+        { "con_dios": "demeter", "nombre_duo": "Invierno Sangriento", "efecto": "Los enemigos congelados sangran al descongelarse." }
+      ]
+    },
+    {
+      "id": "dionisio",
+      "nombre": "Dionisio",
+      "color_tema": "#9932CC",
+      "bendiciones": {
+        "ataque": "Ataque Nauseabundo",
+        "especial": "Florecer Nauseabundo",
+        "lanzamiento": "Disparo Nauseabundo",
+        "llamada": "Ayuda de Dionisio"
+      },
+      "efectos": {
+        "ataque": "Tus ataques aplican Intoxicación (daño gradual acumulable).",
+        "especial": "Tu especial aplica Intoxicación potenciada.",
+        "lanzamiento": "Tu lanzamiento aplica Intoxicación en área.",
+        "llamada": "Invoca una nube de vino que intoxica masivamente a todos los enemigos."
+      },
+      "duos": [
+        { "con_dios": "zeus", "nombre_duo": "Fulgor Festivo", "efecto": "Los rayos aplican intoxicación." },
+        { "con_dios": "poseidon", "nombre_duo": "Resaca Nauseabunda", "efecto": "Los enemigos repelidos aplican intoxicación al chocar." },
+        { "con_dios": "atenea", "nombre_duo": "Resaca Deflectora", "efecto": "Deflectar proyectiles aplica intoxicación." },
+        { "con_dios": "afrodita", "nombre_duo": "Resaca Fascinante", "efecto": "La intoxicación también aplica debilidad." },
+        { "con_dios": "artemisa", "nombre_duo": "Caza Nauseabunda", "efecto": "Los golpes críticos aplican intoxicación potenciada." },
+        { "con_dios": "ares", "nombre_duo": "Resaca Sangrienta", "efecto": "La maldición también intoxica al explotar." },
+        { "con_dios": "demeter", "nombre_duo": "Invierno Nauseabundo", "efecto": "Los enemigos congelados se intoxican al descongelarse." }
+      ]
+    },
+    {
+      "id": "demeter",
+      "nombre": "Deméter",
+      "color_tema": "#ADD8E6",
+      "bendiciones": {
+        "ataque": "Ataque Gélido",
+        "especial": "Florecer Gélido",
+        "lanzamiento": "Disparo Gélido",
+        "llamada": "Ayuda de Deméter"
+      },
+      "efectos": {
+        "ataque": "Tus ataques aplican Congelamiento (ralentiza, luego petrifica).",
+        "especial": "Tu especial aplica Congelamiento acelerado.",
+        "lanzamiento": "Tu lanzamiento congela instantáneamente en área.",
+        "llamada": "Invoca un invierno absoluto que congela todos los enemigos."
+      },
+      "duos": [
+        { "con_dios": "zeus", "nombre_duo": "Invierno Tormentoso", "efecto": "Los rayos también aplican congelamiento." },
+        { "con_dios": "poseidon", "nombre_duo": "Invierno Resbalón", "efecto": "Los enemigos repelidos también se congelan brevemente." },
+        { "con_dios": "atenea", "nombre_duo": "Invierno Deflector", "efecto": "Deflectar proyectiles congela a los enemigos cercanos." },
+        { "con_dios": "afrodita", "nombre_duo": "Invierno Fascinante", "efecto": "Los enemigos congelados están debilitados permanentemente." },
+        { "con_dios": "artemisa", "nombre_duo": "Invierno Mortal", "efecto": "Los golpes críticos congelan instantáneamente." },
+        { "con_dios": "ares", "nombre_duo": "Invierno Sangriento", "efecto": "Los enemigos congelados sangran al descongelarse." },
+        { "con_dios": "dionisio", "nombre_duo": "Invierno Nauseabundo", "efecto": "Los enemigos congelados se intoxican al descongelarse." }
+      ]
+    },
+    {
+      "id": "hermes",
+      "nombre": "Hermes",
+      "color_tema": "#FFD700",
+      "bendiciones": {
+        "aceleron": "Golpe Veloz",
+        "especial": "Ráfaga Veloz",
+        "lanzamiento": "Disparo Veloz",
+        "llamada": "Ayuda de Hermes"
+      },
+      "efecto": {
+        "aceleron": "Tu Acelerón (Dash) ataca y hace daño.",
+        "especial": "Tu especial se carga y ejecuta más rápido.",
+        "lanzamiento": "Tu lanzamiento vuela más rápido y busca objetivos.",
+        "llamada": "Aumenta tu velocidad de movimiento y ataque drásticamente."
+      },
+      "pasivas": [
+        { "nombre": "Velocidad de Movimiento", "efecto": "+10% velocidad de movimiento por nivel. Apilable hasta 5 veces." },
+        { "nombre": "Velocidad de Ataque", "efecto": "+5% velocidad de ataque por nivel. Apilable hasta 5 veces." },
+        { "nombre": "Velocidad de Dash", "efecto": "El dash recarga más rápido. Esencial para builds agresivas." },
+        { "nombre": "Celeridad", "efecto": "Bonus de velocidad temporal tras usar el dash." }
+      ],
+      "nota": "Hermes no forma dúos con otros dioses. Sus bendiciones son de utilidad pura. Sus pasivas de velocidad son las más valiosas.",
+      "duos": []
+    },
+    {
+      "id": "caos",
+      "nombre": "Caos",
+      "color_tema": "#7B2FBE",
+      "bendiciones": {
+        "ataque": "Forma Primordial (Ataque)",
+        "especial": "Forma Primordial (Especial)",
+        "lanzamiento": "Forma Primordial (Lanzamiento)",
+        "llamada": "Forma Primordial (Dash)"
+      },
+      "efectos": {
+        "ataque": "Penalización temporal, luego +X% de daño de ataque permanente por run.",
+        "especial": "Penalización temporal, luego +X% de daño de especial permanente por run.",
+        "lanzamiento": "Penalización temporal, luego +X% de daño de lanzamiento permanente por run.",
+        "llamada": "Penalización temporal, luego +1 carga de dash permanente por run."
+      },
+      "nota": "Las bendiciones de Caos tienen penalización inicial (3-5 habitaciones) pero dan bonos permanentes para esa run. Siempre acéptalas si puedes sobrevivir la penalización.",
+      "duos": []
+    }
+  ]
+}

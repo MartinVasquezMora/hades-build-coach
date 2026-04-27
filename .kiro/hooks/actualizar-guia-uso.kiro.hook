@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "name": "Actualizar guía de uso",
+  "description": "Cuando se edita app.js o index.html, recuerda al agente que debe revisar si hay funcionalidades nuevas o modificadas y actualizar el array SECCIONES_AYUDA en renderAyuda() dentro de app.js para que la pestaña \"Cómo usar\" refleje los cambios.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "app.js",
+      "index.html"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Se acaba de editar un archivo de la app Hades Build Coach. Revisa si se agregó, modificó o eliminó alguna funcionalidad que el usuario deba conocer. Si es así, actualiza el array SECCIONES_AYUDA dentro de la función renderAyuda() en app.js para que la pestaña \"Cómo usar\" refleje el cambio. Solo modifica SECCIONES_AYUDA — no toques el resto de la función. Si no hubo cambios relevantes para el usuario, no hagas nada."
+  },
+  "workspaceFolderName": "ia para hades",
+  "shortName": "actualizar-guia-uso"
+}

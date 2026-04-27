@@ -1,0 +1,379 @@
+{
+  "armas": [
+    {
+      "id": "stygius",
+      "nombre": "Stygius (Espada de Escarcha Escamada)",
+      "aspectos": [
+        {
+          "nombre": "Aspecto de Zagreo",
+          "bono": "Daño de espaldas y velocidad",
+          "estilo_juego": "Combate cercano rápido",
+          "dioses_recomendados": ["ares", "atenea"],
+          "prioridad_bendiciones": {
+            "ares": ["ataque", "especial"],
+            "atenea": ["especial", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Ruptura", "efecto": "El ataque cargado inflige +400% de daño. Esencial para burst.", "prioridad": "S" },
+            { "nombre": "Espada Giratoria", "efecto": "El especial gira alrededor de Zagreo. Excelente con Ares.", "prioridad": "A" },
+            { "nombre": "Ataque Relámpago", "efecto": "El ataque normal se vuelve más rápido y encadena mejor.", "prioridad": "B" }
+          ],
+          "tip_run": "Busca Ruptura en el primer Sísifo. Con Ares en ataque y Ruptura tienes el burst más alto del juego."
+        },
+        {
+          "nombre": "Aspecto de Némesis",
+          "bono": "Daño amplificado tras hacer parry",
+          "estilo_juego": "Juego de riesgo con alto retorno",
+          "dioses_recomendados": ["artemisa", "atenea"],
+          "prioridad_bendiciones": {
+            "artemisa": ["ataque", "especial"],
+            "atenea": ["especial", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Espada Giratoria", "efecto": "El especial gira. Combina con el bonus de parry para daño masivo.", "prioridad": "S" },
+            { "nombre": "Ruptura", "efecto": "El ataque cargado con el bonus de Némesis es devastador.", "prioridad": "A" },
+            { "nombre": "Contraataque Veloz", "efecto": "Reduce el tiempo de recuperación del parry.", "prioridad": "A" }
+          ],
+          "tip_run": "Practica el timing del parry. Con Atenea en especial y Artemisa en ataque, cada parry exitoso hace daño crítico."
+        },
+        {
+          "nombre": "Aspecto de Poseidón",
+          "bono": "Golpes amplificados empujan a los enemigos",
+          "estilo_juego": "Control de masas con resbalón",
+          "dioses_recomendados": ["poseidon", "zeus"],
+          "prioridad_bendiciones": {
+            "poseidon": ["ataque", "lanzamiento"],
+            "zeus": ["especial", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Espada Giratoria", "efecto": "El especial giratorio empuja a todos los enemigos alrededor.", "prioridad": "S" },
+            { "nombre": "Ataque Relámpago", "efecto": "Más ataques = más empujones = más daño de colisión.", "prioridad": "A" },
+            { "nombre": "Ruptura", "efecto": "El cargado empuja con fuerza masiva contra paredes.", "prioridad": "B" }
+          ],
+          "tip_run": "Busca el dúo Fulgor Resbalón. Empujar enemigos contra paredes con rayos activos es devastador."
+        },
+        {
+          "nombre": "Aspecto de Guantelete de Talos",
+          "bono": "Magnetismo que atrae el especial de vuelta",
+          "estilo_juego": "Control del campo de batalla",
+          "dioses_recomendados": ["demeter", "poseidon"],
+          "prioridad_bendiciones": {
+            "demeter": ["especial", "ataque"],
+            "poseidon": ["lanzamiento", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Espada Giratoria", "efecto": "El especial magnético gira y vuelve, cubriendo más área.", "prioridad": "A" },
+            { "nombre": "Ataque Relámpago", "efecto": "Ataques rápidos mientras el especial orbita.", "prioridad": "B" },
+            { "nombre": "Ruptura", "efecto": "El cargado con magnetismo puede atraer grupos.", "prioridad": "B" }
+          ],
+          "tip_run": "El especial que vuelve aplica Congelamiento de Deméter dos veces. Muy efectivo para control."
+        }
+      ]
+    },
+    {
+      "id": "coronacht",
+      "nombre": "Coronacht (Arco Buscacorazones)",
+      "aspectos": [
+        {
+          "nombre": "Aspecto de Zagreo",
+          "bono": "Probabilidad de Crítico",
+          "estilo_juego": "Daño base y críticos",
+          "dioses_recomendados": ["artemisa", "atenea"],
+          "prioridad_bendiciones": {
+            "artemisa": ["ataque", "especial"],
+            "atenea": ["especial", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Flecha Triple", "efecto": "Dispara 3 flechas. Triplica la probabilidad de crítico por disparo.", "prioridad": "S" },
+            { "nombre": "Flecha Perforante", "efecto": "Las flechas atraviesan enemigos. Excelente en pasillos.", "prioridad": "A" },
+            { "nombre": "Disparo Rápido", "efecto": "Aumenta la cadencia de disparo significativamente.", "prioridad": "B" }
+          ],
+          "tip_run": "Flecha Triple con Artemisa en ataque es una de las mejores builds del juego. Cada flecha puede ser crítico."
+        },
+        {
+          "nombre": "Aspecto de Quirón",
+          "bono": "El especial persigue al último enemigo atacado",
+          "estilo_juego": "Enfocado en el ataque especial y DoTs",
+          "dioses_recomendados": ["dionisio", "ares"],
+          "prioridad_bendiciones": {
+            "dionisio": ["especial", "ataque"],
+            "ares": ["especial", "lanzamiento"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Flecha Explosiva", "efecto": "El especial explota al impactar. Con Dionisio aplica intoxicación en área.", "prioridad": "S" },
+            { "nombre": "Flecha Triple", "efecto": "El especial lanza 3 flechas que persiguen al objetivo.", "prioridad": "A" },
+            { "nombre": "Flecha Perforante", "efecto": "El especial atraviesa al objetivo y golpea a los de detrás.", "prioridad": "B" }
+          ],
+          "tip_run": "Flecha Explosiva con Dionisio en especial aplica intoxicación en área. Ideal para grupos densos."
+        },
+        {
+          "nombre": "Aspecto de Hércules",
+          "bono": "El especial se carga y atraviesa enemigos",
+          "estilo_juego": "Penetración y daño en línea",
+          "dioses_recomendados": ["zeus", "poseidon"],
+          "prioridad_bendiciones": {
+            "zeus": ["especial", "llamada"],
+            "poseidon": ["ataque", "lanzamiento"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Flecha Explosiva", "efecto": "El especial cargado explota al final de su trayectoria.", "prioridad": "S" },
+            { "nombre": "Flecha Triple", "efecto": "El especial cargado lanza 3 proyectiles que atraviesan.", "prioridad": "A" },
+            { "nombre": "Disparo Rápido", "efecto": "Reduce el tiempo de carga del especial.", "prioridad": "A" }
+          ],
+          "tip_run": "Flecha Explosiva con Zeus en especial: el rayo rebota entre los enemigos que atraviesa. Limpia habitaciones."
+        }
+      ]
+    },
+    {
+      "id": "aegis",
+      "nombre": "Aegis (Escudo de Caos)",
+      "aspectos": [
+        {
+          "nombre": "Aspecto de Zagreo",
+          "bono": "Dash Bash - Golpe al esquivar",
+          "estilo_juego": "Defensa agresiva",
+          "dioses_recomendados": ["atenea", "ares"],
+          "prioridad_bendiciones": {
+            "atenea": ["especial", "llamada"],
+            "ares": ["ataque", "especial"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Escudo Deflector", "efecto": "El especial deflecta proyectiles automáticamente al lanzarlo.", "prioridad": "S" },
+            { "nombre": "Bash Explosivo", "efecto": "El Dash Bash explota al impactar. Excelente con Ares.", "prioridad": "A" },
+            { "nombre": "Escudo Giratorio", "efecto": "El especial orbita alrededor de Zagreo antes de volver.", "prioridad": "B" }
+          ],
+          "tip_run": "Escudo Deflector con Atenea en especial: deflectas proyectiles automáticamente. Casi invulnerable a rangos."
+        },
+        {
+          "nombre": "Aspecto de Caos",
+          "bono": "Añade bolas de caos al escudo",
+          "estilo_juego": "Daño de área sostenido",
+          "dioses_recomendados": ["zeus", "demeter", "caos"],
+          "prioridad_bendiciones": {
+            "zeus": ["ataque", "especial"],
+            "demeter": ["lanzamiento", "llamada"],
+            "caos": ["ataque", "especial"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Escudo Giratorio", "efecto": "Las bolas de caos orbitan más tiempo y cubren más área.", "prioridad": "S" },
+            { "nombre": "Bash Explosivo", "efecto": "El bash con bolas de caos activas hace daño masivo.", "prioridad": "A" },
+            { "nombre": "Escudo Deflector", "efecto": "Deflectar mientras las bolas orbitan es muy seguro.", "prioridad": "B" }
+          ],
+          "tip_run": "Escudo Giratorio con Zeus en ataque: las bolas de caos emiten rayos mientras orbitan. Daño pasivo enorme."
+        },
+        {
+          "nombre": "Aspecto de Zeus",
+          "bono": "El escudo genera rayos al detenerse",
+          "estilo_juego": "Atronador pasivo",
+          "dioses_recomendados": ["zeus", "dionisio"],
+          "prioridad_bendiciones": {
+            "zeus": ["ataque", "especial"],
+            "dionisio": ["lanzamiento", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Escudo Giratorio", "efecto": "El escudo en órbita genera rayos continuamente.", "prioridad": "S" },
+            { "nombre": "Bash Explosivo", "efecto": "El bash genera una explosión de rayos al impactar.", "prioridad": "A" },
+            { "nombre": "Escudo Deflector", "efecto": "Deflectar activa los rayos del aspecto.", "prioridad": "A" }
+          ],
+          "tip_run": "La build más pasiva del juego. Lanza el escudo, muévete, los rayos hacen el trabajo. Ideal para aprender."
+        },
+        {
+          "nombre": "Aspecto de Beowulf",
+          "bono": "Carga el escudo con sangre y ralentiza",
+          "estilo_juego": "Tank con sangrado",
+          "dioses_recomendados": ["ares", "afrodita"],
+          "prioridad_bendiciones": {
+            "ares": ["ataque", "especial"],
+            "afrodita": ["llamada", "lanzamiento"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Bash Explosivo", "efecto": "El bash cargado con sangre explota en área masiva.", "prioridad": "S" },
+            { "nombre": "Escudo Deflector", "efecto": "Deflectar recarga la sangre más rápido.", "prioridad": "A" },
+            { "nombre": "Escudo Giratorio", "efecto": "El especial aplica ralentización en área.", "prioridad": "B" }
+          ],
+          "tip_run": "Necesitas gestionar tu HP activamente. Afrodita en llamada te da escudo de vida. Ares en ataque maximiza el sangrado."
+        }
+      ]
+    },
+    {
+      "id": "varatha",
+      "nombre": "Varatha (Lanza Eterna)",
+      "aspectos": [
+        {
+          "nombre": "Aspecto de Zagreo",
+          "bono": "Lanza espiral que atraviesa enemigos",
+          "estilo_juego": "Control de espacios",
+          "dioses_recomendados": ["ares", "artemisa"],
+          "prioridad_bendiciones": {
+            "ares": ["especial", "ataque"],
+            "artemisa": ["ataque", "lanzamiento"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Lanza Explosiva", "efecto": "El especial explota al impactar. Con Ares aplica maldición en área.", "prioridad": "S" },
+            { "nombre": "Lanza Veloz", "efecto": "El especial vuelve más rápido, permitiendo más lanzamientos.", "prioridad": "A" },
+            { "nombre": "Ataque Giratorio", "efecto": "El ataque normal gira alrededor de Zagreo.", "prioridad": "B" }
+          ],
+          "tip_run": "Lanza Explosiva con Ares en especial: cada lanzamiento aplica maldición en área. Excelente para grupos."
+        },
+        {
+          "nombre": "Aspecto de Aquiles",
+          "bono": "Regresa rápido y da bonus de daño",
+          "estilo_juego": "Hit-and-run veloz",
+          "dioses_recomendados": ["hermes", "artemisa"],
+          "prioridad_bendiciones": {
+            "hermes": ["aceleron", "especial"],
+            "artemisa": ["ataque", "especial"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Lanza Veloz", "efecto": "La lanza vuelve instantáneamente. El bonus de daño se activa casi siempre.", "prioridad": "S" },
+            { "nombre": "Lanza Explosiva", "efecto": "La explosión al volver hace daño adicional.", "prioridad": "A" },
+            { "nombre": "Ataque Giratorio", "efecto": "Ataques rápidos mientras esperas que vuelva la lanza.", "prioridad": "B" }
+          ],
+          "tip_run": "Lanza Veloz es casi obligatorio. El bonus de daño de Aquiles activo casi permanentemente con Hermes es brutal."
+        },
+        {
+          "nombre": "Aspecto de Hades",
+          "bono": "El especial aplica maldición de sangrado",
+          "estilo_juego": "DoT masivo",
+          "dioses_recomendados": ["ares", "dionisio", "caos"],
+          "prioridad_bendiciones": {
+            "ares": ["ataque", "lanzamiento"],
+            "dionisio": ["especial", "llamada"],
+            "caos": ["especial", "ataque"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Lanza Explosiva", "efecto": "La explosión aplica maldición adicional al sangrado del aspecto.", "prioridad": "S" },
+            { "nombre": "Lanza Veloz", "efecto": "Más lanzamientos = más aplicaciones de sangrado.", "prioridad": "A" },
+            { "nombre": "Ataque Giratorio", "efecto": "El giro aplica el sangrado del aspecto en área.", "prioridad": "A" }
+          ],
+          "tip_run": "La build de DoT más fuerte. Apila sangrado + intoxicación. Los jefes mueren solos si los tocas una vez."
+        },
+        {
+          "nombre": "Aspecto de Guan Yu",
+          "bono": "Modo torreta con vida sacrificada",
+          "estilo_juego": "Alto riesgo, alto daño",
+          "dioses_recomendados": ["demeter", "afrodita"],
+          "prioridad_bendiciones": {
+            "demeter": ["ataque", "especial"],
+            "afrodita": ["llamada", "lanzamiento"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Lanza Explosiva", "efecto": "El modo torreta explota en área. Devastador con Deméter.", "prioridad": "S" },
+            { "nombre": "Lanza Veloz", "efecto": "Salir del modo torreta más rápido reduce el riesgo.", "prioridad": "A" },
+            { "nombre": "Ataque Giratorio", "efecto": "Protección mientras entras en modo torreta.", "prioridad": "B" }
+          ],
+          "tip_run": "CRÍTICO: Necesitas Afrodita en llamada para recuperar HP. Sin curación este aspecto es suicida en Heat alto."
+        }
+      ]
+    },
+    {
+      "id": "malphon",
+      "nombre": "Malphon (Guanteletes Gemelos)",
+      "aspectos": [
+        {
+          "nombre": "Aspecto de Zagreo",
+          "bono": "Combo rápido con gancho final",
+          "estilo_juego": "Duelo cuerpo a cuerpo",
+          "dioses_recomendados": ["ares", "afrodita"],
+          "prioridad_bendiciones": {
+            "ares": ["ataque", "especial"],
+            "afrodita": ["ataque", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Puños Explosivos", "efecto": "El gancho final del combo explota. Con Ares aplica maldición en área.", "prioridad": "S" },
+            { "nombre": "Combo Veloz", "efecto": "El combo se ejecuta más rápido. Más DPS sostenido.", "prioridad": "A" },
+            { "nombre": "Gancho Doble", "efecto": "El gancho final golpea dos veces.", "prioridad": "A" }
+          ],
+          "tip_run": "Puños Explosivos con Ares en ataque: el gancho final aplica maldición en área. Excelente para grupos."
+        },
+        {
+          "nombre": "Aspecto de Talos",
+          "bono": "Magnetismo del especial atrae enemigos",
+          "estilo_juego": "Control gravitacional",
+          "dioses_recomendados": ["poseidon", "zeus"],
+          "prioridad_bendiciones": {
+            "poseidon": ["especial", "ataque"],
+            "zeus": ["ataque", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Puños Explosivos", "efecto": "Los enemigos atraídos explotan al llegar. Daño masivo en área.", "prioridad": "S" },
+            { "nombre": "Combo Veloz", "efecto": "Atacar más rápido a los enemigos agrupados.", "prioridad": "A" },
+            { "nombre": "Gancho Doble", "efecto": "El gancho atrae y golpea dos veces.", "prioridad": "B" }
+          ],
+          "tip_run": "Agrupa enemigos con el especial y usa Puños Explosivos. Con Zeus en ataque, los rayos rebotan entre el grupo."
+        },
+        {
+          "nombre": "Aspecto de Deméter",
+          "bono": "El especial congela enemigos alrededor",
+          "estilo_juego": "Control con hielo",
+          "dioses_recomendados": ["demeter", "atenea"],
+          "prioridad_bendiciones": {
+            "demeter": ["ataque", "lanzamiento"],
+            "atenea": ["especial", "llamada"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Puños Explosivos", "efecto": "Los enemigos congelados explotan al recibir el gancho.", "prioridad": "S" },
+            { "nombre": "Combo Veloz", "efecto": "Atacar más rápido a enemigos congelados maximiza el daño.", "prioridad": "A" },
+            { "nombre": "Gancho Doble", "efecto": "Doble golpe a enemigos congelados = doble daño.", "prioridad": "A" }
+          ],
+          "tip_run": "Congela con el especial, luego usa el combo completo. Los enemigos congelados reciben daño amplificado."
+        }
+      ]
+    },
+    {
+      "id": "exagryph",
+      "nombre": "Exagryph (Cañón de Adamant)",
+      "aspectos": [
+        {
+          "nombre": "Aspecto de Zagreo",
+          "bono": "Disparos explosivos con daño en área",
+          "estilo_juego": "Artillero de asedio",
+          "dioses_recomendados": ["zeus", "demeter", "caos"],
+          "prioridad_bendiciones": {
+            "zeus": ["ataque", "especial"],
+            "demeter": ["lanzamiento", "llamada"],
+            "caos": ["lanzamiento", "ataque"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Cañón Automático", "efecto": "El ataque se vuelve automático al mantener el botón. DPS masivo.", "prioridad": "S" },
+            { "nombre": "Granada Racimo", "efecto": "El especial lanza múltiples granadas. Excelente con Zeus.", "prioridad": "A" },
+            { "nombre": "Disparo Perforante", "efecto": "Los proyectiles atraviesan enemigos.", "prioridad": "B" }
+          ],
+          "tip_run": "Cañón Automático con Zeus en ataque: los rayos rebotan entre enemigos mientras disparas sin parar."
+        },
+        {
+          "nombre": "Aspecto de Eris",
+          "bono": "Recarga con bonus de daño variable",
+          "estilo_juego": "Caos controlado",
+          "dioses_recomendados": ["dionisio", "ares"],
+          "prioridad_bendiciones": {
+            "dionisio": ["ataque", "especial"],
+            "ares": ["especial", "lanzamiento"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Cañón Automático", "efecto": "El bonus de daño de Eris se aplica a todos los disparos automáticos.", "prioridad": "S" },
+            { "nombre": "Granada Racimo", "efecto": "El especial con bonus de Eris hace daño masivo en área.", "prioridad": "A" },
+            { "nombre": "Disparo Perforante", "efecto": "El bonus de daño se aplica a todos los enemigos atravesados.", "prioridad": "A" }
+          ],
+          "tip_run": "El bonus de Eris puede llegar a +100% de daño. Con Dionisio en ataque, la intoxicación se aplica con ese bonus."
+        },
+        {
+          "nombre": "Aspecto de Héstia",
+          "bono": "Disparo único masivo, sin munición",
+          "estilo_juego": "Disparo letal único",
+          "dioses_recomendados": ["artemisa", "afrodita"],
+          "prioridad_bendiciones": {
+            "artemisa": ["ataque", "llamada"],
+            "afrodita": ["ataque", "especial"]
+          },
+          "martillos_dedalo": [
+            { "nombre": "Disparo Perforante", "efecto": "El disparo único atraviesa todos los enemigos en línea.", "prioridad": "S" },
+            { "nombre": "Granada Racimo", "efecto": "El especial complementa el disparo único con área.", "prioridad": "A" },
+            { "nombre": "Cañón Automático", "efecto": "No aplica al disparo único, pero mejora el especial.", "prioridad": "C" }
+          ],
+          "tip_run": "Disparo Perforante con Artemisa: un disparo crítico que atraviesa toda la habitación. Ideal para jefes."
+        }
+      ]
+    }
+  ]
+}
