@@ -37,6 +37,15 @@ Aplicación de escritorio (Electron) para coaching de builds de Hades con sistem
 - **Farmeo**: Configuración del Espejo y recuerdos para maximizar recursos
 - **High Heat**: Recordatorios defensivos para jefes y Pacto de Castigo
 
+### 🔧 Sistema de Detección de Mods
+- **Detección automática** de mods en 16 ubicaciones (Vortex, Steam, Epic Games)
+- **18 mods conocidos** pre-configurados (God Mode Plus, More Boons, Always Duo, etc.)
+- **Base de datos persistente** para evitar re-escaneos
+- **Filtros inteligentes** que ignoran archivos de sistema y datos del juego base
+- **Integración completa**: modificadores, advertencias y ajustes de recomendaciones
+- **Compatible** con mods de traducción y personalizados
+- **UI dedicada** con modal, badge de estado y lista de mods por categoría
+
 ## 🚀 Instalación
 
 ### Requisitos
@@ -77,6 +86,23 @@ npm start
 | **F3** | Marcar victoria |
 | **F4** | Marcar derrota |
 
+### Sistema de Mods
+
+El coach detecta automáticamente mods instalados y ajusta sus recomendaciones:
+
+1. Haz clic en el botón **🔧 Mods** en la barra superior
+2. Presiona **🔍 Escanear** para detectar mods
+3. Los mods detectados se mostrarán agrupados por categoría
+4. Las advertencias aparecerán si los mods afectan las recomendaciones
+
+**Ubicaciones detectadas automáticamente:**
+- Vortex Mod Manager (`AppData\Roaming\Vortex\hades\mods`)
+- Steam (`Program Files\Steam\steamapps\common\Hades\Content\Mods`)
+- Epic Games (`Program Files\Epic Games\Hades\Content\Mods`)
+- Y 13 ubicaciones más...
+
+Ver [MODS-SISTEMA.md](MODS-SISTEMA.md) para documentación completa.
+
 ### Visión Artificial (Opcional)
 
 Para activar la detección automática de dioses:
@@ -110,11 +136,18 @@ El badge en la barra superior cambiará a 🟢 **Visión Activa** cuando esté c
 │   ├── vision.js             # Cliente WebSocket
 │   ├── engine.js             # Motor de recomendaciones
 │   ├── tracker.js            # Tracker de runs
-│   └── ui.js                 # Interfaz y controles
+│   ├── ui.js                 # Interfaz y controles
+│   ├── mods.js               # Sistema de detección de mods
+│   └── mods-ui.js            # UI del sistema de mods
 ├── 📁 data/
 │   ├── armas.json            # Armas, aspectos, martillos
 │   ├── dioses.json           # Dioses, bendiciones, dúos
 │   └── recuerdos.json        # Recuerdos por categoría
+├── 📁 docs/
+│   ├── MODS-SISTEMA.md       # Documentación del sistema de mods
+│   ├── MODS-MEJORAS.md       # Mejoras futuras
+│   ├── MODS-RESUMEN.md       # Resumen ejecutivo
+│   └── UBICACIONES-MODS.md   # Ubicaciones de mods
 └── 📁 python/
     ├── ojo.py                # Servidor OCR WebSocket
     ├── calibrador.py         # Calibración de captura
