@@ -20,6 +20,7 @@
         </div>
         <div id="title-controls">
             <button id="test-ia-btn" title="Simular detección de Artemisa">🧪 Test IA</button>
+            <button id="diagnostic-btn" title="Diagnóstico del sistema">🩺 Diagnóstico</button>
             <button id="mods-btn" title="Configurar mods">🔧 Mods</button>
             <button id="close-btn">✕</button>
         </div>
@@ -81,6 +82,7 @@
         <button class="tab-btn active" data-tab="lab">⚗️ Laboratorio</button>
         <button class="tab-btn" data-tab="tracker">🏃 Run Activa</button>
         <button class="tab-btn" data-tab="historial">📊 Historial</button>
+        <button class="tab-btn" data-tab="mods">🔧 Mods</button>
         <button class="tab-btn" data-tab="ayuda">📖 Cómo usar</button>
     </nav>
 
@@ -410,6 +412,139 @@
     </div>
     </div><!-- /tab-historial -->
 
+    <!-- ==================== PESTAÑA MODS (TRADUCTOR) ==================== -->
+    <div id="tab-mods" class="tab-panel hidden">
+        <div class="mods-translator-panel" id="mods-panel">
+            <div class="mods-translator-header">
+                <h3>🔧 Traductor de Mods</h3>
+                <button class="btn-config" id="mods-config-btn" title="Configuración">⚙️</button>
+            </div>
+
+            <!-- Configuración inicial / Error de Python -->
+            <div id="translator-setup-section" class="translator-setup-section">
+                <div id="python-missing-alert" class="alert alert-error hidden">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Python no encontrado</strong>
+                        <p>Se requiere Python para ejecutar el traductor.</p>
+                        <a href="https://python.org" target="_blank">Descargar Python</a>
+                    </div>
+                </div>
+                <div id="mods-folder-missing" class="alert alert-warning hidden">
+                    <span class="alert-icon">📁</span>
+                    <div class="alert-content">
+                        <strong>Carpeta de mods no configurada</strong>
+                        <p>Configura la carpeta donde están instalados tus mods.</p>
+                        <button id="setup-mods-folder-btn" class="btn-primary">Configurar carpeta</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de Mods detectados -->
+            <div class="mods-list-section" id="mods-list-section">
+                <h4>Mods Detectados (<span id="translator-mods-count">0</span>)</h4>
+                <div id="translator-mods-list" class="translator-mods-list">
+                    <div class="mods-empty">Haz clic en "Escanear mods" para buscar mods instalados.</div>
+                </div>
+                <button id="scan-translator-mods-btn" class="btn-secondary">🔍 Escanear mods</button>
+            </div>
+
+            <!-- Selector de idioma -->
+            <div class="translator-controls">
+                <div class="control-group">
+                    <label for="target-lang-select">Idioma destino:</label>
+                    <select id="target-lang-select">
+                        <option value="es">Español (es)</option>
+                        <option value="en">English (en)</option>
+                        <option value="fr">Français (fr)</option>
+                        <option value="de">Deutsch (de)</option>
+                        <option value="pt">Português (pt)</option>
+                        <option value="it">Italiano (it)</option>
+                        <option value="ru">Русский (ru)</option>
+                        <option value="ja">日本語 (ja)</option>
+                        <option value="ko">한국어 (ko)</option>
+                        <option value="zh">中文 (zh)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Barra de progreso -->
+            <div class="progress-section hidden" id="progress-section">
+                <div class="progress-info">
+                    <span id="progress-phase">Preparando...</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="progress-phases">
+                    <div class="phase" id="phase-0">🧹 Sanitizando</div>
+                    <div class="phase" id="phase-1">📖 Leyendo</div>
+                    <div class="phase" id="phase-2">🌐 Traduciendo</div>
+                    <div class="phase" id="phase-3">✅ Aplicando</div>
+                </div>
+            </div>
+
+            <!-- Log en vivo -->
+            <div class="log-section">
+                <div class="log-header">
+                    <span>Log</span>
+                    <button id="clear-log-btn" class="btn-link">Limpiar</button>
+                </div>
+                <textarea id="translator-log" class="translator-log" readonly placeholder="El log aparecerá aquí..."></textarea>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="translator-actions">
+                <button id="translate-mods-btn" class="btn-primary btn-large">🌐 Traducir mods</button>
+                <button id="run-mod-importer-btn" class="btn-secondary btn-large" disabled>📦 Ejecutar Mod Importer</button>
+                <button id="open-hades-btn" class="btn-secondary btn-large" disabled>🎮 Abrir Hades</button>
+            </div>
+        </div>
+
+        <!-- Modal de configuración -->
+        <div id="translator-config-modal" class="modal hidden">
+            <div class="modal-content translator-config-content">
+                <div class="modal-header">
+                    <h3>⚙️ Configuración del Traductor</h3>
+                    <button class="modal-close" id="close-translator-config">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="config-group">
+                        <label>Carpeta de mods:</label>
+                        <div class="folder-input-group">
+                            <input type="text" id="config-mods-path" placeholder="Ruta a la carpeta de mods...">
+                            <button id="browse-mods-path-btn" class="btn-secondary">📁</button>
+                        </div>
+                    </div>
+                    <div class="config-group">
+                        <label>Ruta del traductor Python (traductor.py):</label>
+                        <div class="folder-input-group">
+                            <input type="text" id="config-translator-path" placeholder="Ruta a traductor.py...">
+                            <button id="browse-translator-path-btn" class="btn-secondary">📁</button>
+                        </div>
+                    </div>
+                    <div class="config-group">
+                        <label>Ruta del Mod Importer:</label>
+                        <div class="folder-input-group">
+                            <input type="text" id="config-importer-path" placeholder="Ruta a modimporter.exe...">
+                            <button id="browse-importer-path-btn" class="btn-secondary">📁</button>
+                        </div>
+                    </div>
+                    <div class="config-group">
+                        <label>Comando de Python:</label>
+                        <input type="text" id="config-python-path" placeholder="python o python3">
+                        <small>Usa "python" en Windows, "python3" en Linux/Mac</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-translator-config" class="btn-primary">Guardar</button>
+                    <button id="cancel-translator-config" class="btn-secondary">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ==================== PESTAÑA CÓMO USAR ==================== -->
     <div id="tab-ayuda" class="tab-panel hidden">
         <div class="ayuda-panel" id="ayuda-panel">
@@ -484,6 +619,143 @@
                 <button class="btn-secondary" onclick="closeModsModal()">Cerrar</button>
             </div>
         </div>
+    </div>
+
+    <!-- ==================== MODAL DE DIAGNÓSTICO ==================== -->
+    <div id="diagnostic-modal" class="modal hidden">
+        <div class="modal-content diagnostic-modal-content">
+            <div class="modal-header">
+                <h2>🩺 Diagnóstico del Sistema</h2>
+                <button class="modal-close" onclick="closeDiagnosticModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <!-- Estado general -->
+                <div class="diagnostic-status" id="diagnostic-status">
+                    <div class="status-icon-large">⏳</div>
+                    <div class="status-text-large">Haz clic en "Ejecutar diagnóstico" para verificar el sistema</div>
+                </div>
+
+                <!-- Botón ejecutar -->
+                <div class="diagnostic-actions">
+                    <button id="run-diagnostic-btn" class="btn-primary btn-large">🔍 Ejecutar diagnóstico</button>
+                    <button id="save-report-btn" class="btn-secondary" disabled>💾 Guardar reporte</button>
+                    <button id="auto-fix-btn" class="btn-secondary" disabled>🔧 Solucionar automáticamente</button>
+                </div>
+
+                <!-- Resumen -->
+                <div class="diagnostic-summary hidden" id="diagnostic-summary">
+                    <div class="summary-item errors">
+                        <span class="summary-count" id="summary-errors">0</span>
+                        <span class="summary-label">Errores</span>
+                    </div>
+                    <div class="summary-item warnings">
+                        <span class="summary-count" id="summary-warnings">0</span>
+                        <span class="summary-label">Advertencias</span>
+                    </div>
+                    <div class="summary-item info">
+                        <span class="summary-count" id="summary-info">0</span>
+                        <span class="summary-label">Info</span>
+                    </div>
+                    <div class="summary-item checks">
+                        <span class="summary-count" id="summary-checks">0</span>
+                        <span class="summary-label">Checks OK</span>
+                    </div>
+                </div>
+
+                <!-- Lista de checks -->
+                <div class="diagnostic-section">
+                    <h3>✅ Verificaciones completadas</h3>
+                    <div id="checks-list" class="checks-list">
+                        <div class="placeholder-text">Aún no se han ejecutado verificaciones</div>
+                    </div>
+                </div>
+
+                <!-- Lista de problemas -->
+                <div class="diagnostic-section">
+                    <h3>⚠️ Problemas detectados</h3>
+                    <div id="issues-list" class="issues-list">
+                        <div class="placeholder-text">No se han detectado problemas</div>
+                    </div>
+                </div>
+
+                <!-- Soluciones sugeridas -->
+                <div class="diagnostic-section hidden" id="solutions-section">
+                    <h3>🔧 Soluciones sugeridas</h3>
+                    <div id="solutions-list" class="solutions-list"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeDiagnosticModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TRANSLATOR PANEL ==================== -->
+    <div id="translator-panel" class="panel hidden">
+        <div class="panel-header">
+            <h3>🌐 Traductor de Mods</h3>
+            <button id="translator-config-btn">⚙️</button>
+        </div>
+
+        <div id="translator-config-section" class="hidden">
+            <div class="config-row">
+                <label>Carpeta de mods</label>
+                <input id="translator-input-modsPath" type="text" readonly>
+                <button id="translator-browse-mods">📁</button>
+            </div>
+            <div class="config-row">
+                <label>traductor.py</label>
+                <input id="translator-input-translatorPath" type="text" readonly>
+                <button id="translator-browse-script">📁</button>
+            </div>
+            <div class="config-row">
+                <label>modimporter.exe</label>
+                <input id="translator-input-importerPath" type="text" readonly>
+                <button id="translator-browse-importer">📁</button>
+            </div>
+            <div class="config-row">
+                <label>Python</label>
+                <input id="translator-input-pythonPath" type="text" value="python">
+            </div>
+        </div>
+
+        <div class="translator-controls">
+            <select id="translator-lang-select">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="pt">Português</option>
+                <option value="it">Italiano</option>
+                <option value="ru">Русский</option>
+                <option value="ja">日本語</option>
+                <option value="ko">한국어</option>
+                <option value="zh">中文</option>
+            </select>
+            <button id="translator-scan-btn">🔍 Escanear mods</button>
+            <button id="translator-run-btn">🌐 Traducir mods</button>
+        </div>
+
+        <div id="translator-mods-list" class="mods-list"></div>
+
+        <div class="progress-container">
+            <div class="progress-track">
+                <div id="translator-progress-bar" style="width:0%"></div>
+            </div>
+            <span id="translator-progress-label"></span>
+        </div>
+
+        <div id="translator-log" class="translator-log"></div>
+
+        <div class="translator-actions">
+            <button id="translator-importer-btn" disabled>⚙️ Ejecutar Mod Importer</button>
+            <button id="translator-open-hades-btn" disabled>🎮 Abrir Hades</button>
+        </div>
+    </div>
+
+    <div id="diagnostic-panel" class="panel hidden">
+        <h3>🔧 Diagnóstico</h3>
+        <p>Sistema de diagnóstico del traductor.</p>
     </div>
 
     <script src="app.js"></script>

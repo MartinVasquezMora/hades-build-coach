@@ -30,6 +30,8 @@ const {
 } = require('./js/ui');
 const modManager = require('./js/mods');
 const modsUI = require('./js/mods-ui');
+const modsTranslatorUI = require('./js/mods-translator-ui');
+const diagnosticUI = require('./js/diagnostic-ui');
 
 // ==================== DOM (lazy init) ====================
 let DOM = {};
@@ -178,15 +180,24 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     setupElectronControls();
     setTimeout(() => VisionClient.init(DOM), 1000);
-    
+
     // Inicializar sistema de mods
     modsUI.init();
+
+    // Inicializar traductor de mods
+    setTimeout(() => modsTranslatorUI.init(), 500);
+
+    // Inicializar diagnóstico y ejecutar check silencioso
+    diagnosticUI.init();
+    setTimeout(() => diagnosticUI.runSilentCheck(), 2000);
 });
 
 // Exponer funciones globales para el HTML (onclick handlers)
 window.toggleBendicion = toggleBendicion;
 window.toggleModoCompacto = toggleModoCompacto;
 window.modsUI = modsUI; // Exponer para el modal
+window.modsTranslatorUI = modsTranslatorUI; // Exponer traductor
+window.diagnosticUI = diagnosticUI; // Exponer diagnóstico
 
 // Exportar para testing
 if (typeof module !== 'undefined' && module.exports) {
