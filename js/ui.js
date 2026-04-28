@@ -343,9 +343,10 @@ function renderAyuda() {
                 { n: '1', texto: 'Selecciona tu <strong>arma</strong> en el panel izquierdo.' },
                 { n: '2', texto: 'Elige el <strong>aspecto</strong> que estás usando en esa run.' },
                 { n: '3', texto: 'El coach genera automáticamente: build óptima, sinergias, martillos y ruta de recuerdos.' },
-                { n: '4', texto: 'Presiona <kbd>F2</kbd> para registrar que empezaste la run.' },
-                { n: '5', texto: 'Usa <kbd>F1</kbd> para cambiar al <strong>modo compacto</strong> mientras juegas.' },
-                { n: '6', texto: 'Al terminar, presiona <kbd>F3</kbd> (victoria) o <kbd>F4</kbd> (derrota).' }
+                { n: '4', texto: 'Usa el botón <strong>🔧 Mods</strong> en la barra superior para configurar mods activos (opcional).' },
+                { n: '5', texto: 'Presiona <kbd>F2</kbd> para registrar que empezaste la run.' },
+                { n: '6', texto: 'Usa <kbd>F1</kbd> para cambiar al <strong>modo compacto</strong> mientras juegas.' },
+                { n: '7', texto: 'Al terminar, presiona <kbd>F3</kbd> (victoria) o <kbd>F4</kbd> (derrota).' }
             ]
         },
         {
@@ -357,6 +358,19 @@ function renderAyuda() {
                 { tecla: 'F2', accion: 'Nueva run', desc: 'Registra el inicio de una run con el arma/aspecto seleccionado.' },
                 { tecla: 'F3', accion: 'Victoria', desc: 'Marca la run activa como ganada y la guarda en el historial.' },
                 { tecla: 'F4', accion: 'Derrota', desc: 'Marca la run activa como perdida y la guarda en el historial.' }
+            ]
+        },
+        {
+            icono: '🔧',
+            titulo: 'Sistema de Mods',
+            tipo: 'descripcion',
+            parrafos: ['El coach detecta automáticamente los mods instalados en Hades y te avisa si pueden afectar las recomendaciones.'],
+            items: [
+                { label: 'Badge de estado', texto: 'El indicador en la barra superior muestra cuántos mods están activos. Haz clic para ver detalles.' },
+                { label: 'Modificadores activos', texto: 'Si hay mods que modifican el gameplay (más bendiciones, probabilidad de dúos, dificultad, etc.), verás tarjetas con los multiplicadores activos.' },
+                { label: 'Escaneo automático', texto: 'Al iniciar, el coach busca mods en la carpeta de Hades. Puedes reescanear manualmente.' },
+                { label: 'Advertencias', texto: 'Si un mod modifica bendiciones o dúos, verás una alerta ⚠️ indicando que las recomendaciones pueden no ser precisas.' },
+                { label: 'Mods personalizados', texto: 'Los mods no reconocidos se marcan como "Personalizado" para que sepas que el coach no los tiene en cuenta.' }
             ]
         },
         {

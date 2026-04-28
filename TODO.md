@@ -1,10 +1,18 @@
 # 📋 Hades Build Coach - Tareas Pendientes
 
+## ✅ Completado Recientemente
+
+- [x] Sistema de detección de mods
+- [x] Interfaz de configuración de mods
+- [x] Advertencias inteligentes basadas en mods
+- [x] Auto-detección de carpeta de mods
+
 ## 🎯 Prioridad Alta
 
 - [ ] Verificar que los 5 fixes funcionan correctamente en producción
 - [ ] Probar integración con ojo.py (visión artificial)
 - [ ] Calibrar área de captura con calibrador.py
+- [ ] Probar sistema de mods con mods reales instalados
 
 ## 🔧 Mejoras Técnicas
 

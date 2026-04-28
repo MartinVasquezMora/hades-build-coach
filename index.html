@@ -14,8 +14,13 @@
             <span class="status-icon">🔴</span>
             <span class="status-text">Sin Visión</span>
         </div>
+        <div id="mods-status-badge" class="mods-none" title="Haz clic para configurar mods">
+            <span class="status-icon">🎮</span>
+            <span class="status-text">Sin Mods</span>
+        </div>
         <div id="title-controls">
             <button id="test-ia-btn" title="Simular detección de Artemisa">🧪 Test IA</button>
+            <button id="mods-btn" title="Configurar mods">🔧 Mods</button>
             <button id="close-btn">✕</button>
         </div>
     </div>
@@ -409,6 +414,75 @@
     <div id="tab-ayuda" class="tab-panel hidden">
         <div class="ayuda-panel" id="ayuda-panel">
             <!-- Generado dinámicamente por renderAyuda() en app.js -->
+        </div>
+    </div>
+
+    <!-- ==================== MODAL DE MODS ==================== -->
+    <div id="mods-modal" class="modal hidden">
+        <div class="modal-content mods-modal-content">
+            <div class="modal-header">
+                <h2>🎮 Gestión de Mods</h2>
+                <button class="modal-close" onclick="closeModsModal()">✕</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Estado de mods -->
+                <div class="mods-status-section">
+                    <div class="mods-toggle">
+                        <label class="switch">
+                            <input type="checkbox" id="mods-enabled-toggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="toggle-label">Detección de mods activada</span>
+                    </div>
+                    
+                    <div class="mods-folder-config">
+                        <label>Carpeta de mods:</label>
+                        <div class="folder-input-group">
+                            <input type="text" id="mods-folder-input" placeholder="Auto-detectar..." readonly>
+                            <button id="browse-mods-folder-btn" class="btn-secondary">📁 Buscar</button>
+                            <button id="scan-mods-btn" class="btn-primary">🔍 Escanear</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mods detectados -->
+                <div class="mods-detected-section">
+                    <h3>Mods Detectados (<span id="mods-count">0</span>)</h3>
+                    <div id="mods-list" class="mods-list">
+                        <div class="mods-empty">
+                            <p>No se han detectado mods.</p>
+                            <p class="mods-hint">Haz clic en "Escanear" para buscar mods instalados.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modificadores activos -->
+                <div id="active-modifiers-section" class="active-modifiers-section hidden">
+                    <div id="active-modifiers-content"></div>
+                </div>
+
+                <!-- Advertencias de mods -->
+                <div id="mods-warnings-section" class="mods-warnings-section hidden">
+                    <h3>⚠️ Advertencias</h3>
+                    <div id="mods-warnings-list"></div>
+                </div>
+
+                <!-- Información -->
+                <div class="mods-info-section">
+                    <h4>ℹ️ Información</h4>
+                    <ul>
+                        <li>Los mods pueden afectar las recomendaciones del coach</li>
+                        <li>Se detectan automáticamente mods en formato .lua</li>
+                        <li>Las advertencias se mostrarán en la interfaz principal</li>
+                        <li>Última actualización: <span id="mods-last-scan">Nunca</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModsModal()">Cerrar</button>
+            </div>
         </div>
     </div>
 

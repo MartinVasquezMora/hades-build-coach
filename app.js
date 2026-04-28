@@ -28,6 +28,8 @@ const {
     showErrorToUser,
     toggleModoCompacto
 } = require('./js/ui');
+const modManager = require('./js/mods');
+const modsUI = require('./js/mods-ui');
 
 // ==================== DOM (lazy init) ====================
 let DOM = {};
@@ -176,11 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     setupElectronControls();
     setTimeout(() => VisionClient.init(DOM), 1000);
+    
+    // Inicializar sistema de mods
+    modsUI.init();
 });
 
 // Exponer funciones globales para el HTML (onclick handlers)
 window.toggleBendicion = toggleBendicion;
 window.toggleModoCompacto = toggleModoCompacto;
+window.modsUI = modsUI; // Exponer para el modal
 
 // Exportar para testing
 if (typeof module !== 'undefined' && module.exports) {

@@ -1,0 +1,239 @@
+{
+  "modsEnabled": true,
+  "modsFolder": "C:\\Users\\marti\\AppData\\Roaming\\Vortex\\hades\\mods",
+  "autoDetect": true,
+  "persistMods": true,
+  "knownMods": [
+    {
+      "id": "god-mode-plus",
+      "name": "God Mode Plus",
+      "description": "Mejora el God Mode con más opciones de personalización",
+      "affects": [
+        "difficulty",
+        "damage"
+      ],
+      "files": [
+        "GodModePlus.lua",
+        "GodMode.lua"
+      ]
+    },
+    {
+      "id": "more-boons",
+      "name": "More Boons",
+      "description": "Aumenta la cantidad de bendiciones disponibles en cada elección",
+      "affects": [
+        "boons",
+        "choices"
+      ],
+      "files": [
+        "MoreBoons.lua",
+        "RoomManager.sjson",
+        "ExtraBoons.lua"
+      ]
+    },
+    {
+      "id": "custom-builds",
+      "name": "Custom Builds",
+      "description": "Permite crear y guardar builds personalizadas",
+      "affects": [
+        "boons",
+        "builds"
+      ],
+      "files": [
+        "CustomBuilds.lua",
+        "BuildManager.lua"
+      ]
+    },
+    {
+      "id": "faster-runs",
+      "name": "Faster Runs",
+      "description": "Acelera el ritmo de las runs reduciendo animaciones",
+      "affects": [
+        "speed",
+        "gameplay"
+      ],
+      "files": [
+        "FasterRuns.lua",
+        "SpeedMod.lua"
+      ]
+    },
+    {
+      "id": "all-keepsakes",
+      "name": "All Keepsakes Unlocked",
+      "description": "Desbloquea todos los recuerdos desde el inicio",
+      "affects": [
+        "keepsakes",
+        "unlocks"
+      ],
+      "files": [
+        "AllKeepsakes.lua",
+        "UnlockAll.lua"
+      ]
+    },
+    {
+      "id": "custom-heat",
+      "name": "Custom Heat",
+      "description": "Personaliza el Pacto de Castigo con opciones avanzadas",
+      "affects": [
+        "heat",
+        "difficulty"
+      ],
+      "files": [
+        "CustomHeat.lua",
+        "HeatManager.lua"
+      ]
+    },
+    {
+      "id": "debug-mode",
+      "name": "Debug Mode",
+      "description": "Activa el modo debug del juego con comandos de consola",
+      "affects": [
+        "debug",
+        "testing"
+      ],
+      "files": [
+        "DebugMode.lua",
+        "Console.lua"
+      ]
+    },
+    {
+      "id": "always-duo",
+      "name": "Always Duo Boons",
+      "description": "Aumenta drásticamente la probabilidad de bendiciones dúo",
+      "affects": [
+        "boons",
+        "duo"
+      ],
+      "files": [
+        "AlwaysDuo.lua",
+        "DuoBoost.lua",
+        "GuaranteedDuo.lua"
+      ]
+    },
+    {
+      "id": "modutil",
+      "name": "ModUtil",
+      "description": "Utilidad base para otros mods (framework)",
+      "affects": [
+        "framework"
+      ],
+      "files": [
+        "ModUtil.lua"
+      ]
+    },
+    {
+      "id": "print-util",
+      "name": "PrintUtil",
+      "description": "Utilidad de logging para desarrollo de mods",
+      "affects": [
+        "debug",
+        "framework"
+      ],
+      "files": [
+        "PrintUtil.lua"
+      ]
+    },
+    {
+      "id": "sgg-mod-format",
+      "name": "SGG Mod Format",
+      "description": "Framework de modding de Supergiant Games",
+      "affects": [
+        "framework"
+      ],
+      "files": [
+        "SGGModFormat.lua",
+        "modfile.txt"
+      ]
+    },
+    {
+      "id": "better-ui",
+      "name": "Better UI",
+      "description": "Mejoras en la interfaz de usuario",
+      "affects": [
+        "visual",
+        "ui"
+      ],
+      "files": [
+        "BetterUI.lua",
+        "UIEnhancements.lua"
+      ]
+    },
+    {
+      "id": "quality-of-life",
+      "name": "Quality of Life",
+      "description": "Mejoras generales de calidad de vida",
+      "affects": [
+        "gameplay",
+        "qol"
+      ],
+      "files": [
+        "QoL.lua",
+        "QualityOfLife.lua"
+      ]
+    },
+    {
+      "id": "instant-rewards",
+      "name": "Instant Rewards",
+      "description": "Recompensas instantáneas sin animaciones",
+      "affects": [
+        "speed",
+        "gameplay"
+      ],
+      "files": [
+        "InstantRewards.lua"
+      ]
+    },
+    {
+      "id": "custom-music",
+      "name": "Custom Music",
+      "description": "Permite usar música personalizada",
+      "affects": [
+        "audio",
+        "music"
+      ],
+      "files": [
+        "CustomMusic.lua",
+        "MusicManager.lua"
+      ]
+    },
+    {
+      "id": "skip-dialogue",
+      "name": "Skip Dialogue",
+      "description": "Permite saltar diálogos más rápido",
+      "affects": [
+        "speed",
+        "dialogue"
+      ],
+      "files": [
+        "SkipDialogue.lua"
+      ]
+    },
+    {
+      "id": "show-damage",
+      "name": "Show Damage Numbers",
+      "description": "Muestra números de daño en pantalla",
+      "affects": [
+        "visual",
+        "ui"
+      ],
+      "files": [
+        "ShowDamage.lua",
+        "DamageNumbers.lua"
+      ]
+    },
+    {
+      "id": "auto-sell",
+      "name": "Auto Sell",
+      "description": "Vende automáticamente bendiciones no deseadas",
+      "affects": [
+        "boons",
+        "automation"
+      ],
+      "files": [
+        "AutoSell.lua"
+      ]
+    }
+  ],
+  "detectedMods": [],
+  "lastScan": "2026-04-28T03:13:38.980Z"
+}
